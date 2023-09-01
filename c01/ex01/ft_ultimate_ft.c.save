@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+void ft_ft(int **nbr);
+void ft_ultimate_ft(int *********nbr);
+
+int main(){
+
+ int valor = 42;
+ int *pa = &valor;
+ int **paa = &pa;
+
+ ft_ft(&&paa);
+ //ft_ultimate_ft();
+
+ return 0;
+}
+
+//void ft_ultimate_ft(int *********nbr){
+// printf("valor: %d", **nbr);
+//}
+
+void ft_ft(int **nbr){
+ printf("valor: %d ", **nbr);
+}

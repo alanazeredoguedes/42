@@ -1,0 +1,31 @@
+#include <unistd.h>
+#include <stdio.h>
+
+void ft_putstr(char *str);
+
+int main(){
+
+ char string[] = "Alan Lindão";
+
+ printf("%c", string[0]);
+ printf("%s", string);
+ int size = sizeof(string) / sizeof(string[0]);
+ printf("%d", size);
+ ft_putstr(string);
+
+
+ return 0;
+}
+
+void ft_putstr(char *str){
+
+
+ //printf("%c", str[0]);
+	// printf("%s", str);
+
+ int size = sizeof(string) / sizeof(string[0]);
+ printf("%d", size);
+
+// write(1, str, size);
+
+}
