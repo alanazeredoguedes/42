@@ -1,18 +1,23 @@
-void ft_swap(int *a, int *b);
+/*#include <stdio.h>*/
 
-int main(){
+void	ft_swap(int *a, int *b)
+{
+	int	temp;
 
- int a = 2;
- int b = 4;
-
- ft_swap(&a, &b);
-
-return 0;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
+/*
+int	main(void)
+{
+	int	a;
+	int	b;
 
-void ft_swap(int *a, int *b){
-
- *a = 12;
- *b = 20;
-
-}
+	a = 0;
+	b = 5;
+	ft_swap(&a, &b);
+	printf("%d", a);
+	printf("%d", b);
+	return (0);
+}*/

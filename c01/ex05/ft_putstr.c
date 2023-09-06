@@ -1,31 +1,33 @@
-#include <unistd.h>
-#include <stdio.h>
+/*#include <unistd.h>*/
 
-int strlenn(char *s);
-void ft_putstr(char *str);
+int	str_count(char *str)
+{
+	int	i;
+	int	count;
+	char	ch;
 
-int main(){
-
- char *string = "Amen";
- ft_putstr(string);
-
- return 0;
+	count = 0;
+	ch = str[0];
+	i = 0;
+	while (ch != '\0')
+	{
+		count++;
+		ch = str[i];
+		i++;
+	}
+	return (count);
 }
 
-void ft_putstr(char *str){
-
- write(1, str, strlenn(str));
-
+void	ft_putstr(char *str)
+{
+	write(1, str, str_count(str));
 }
+/*
+int	main(void)
+{
+	char	*string;
 
-
-int strlenn(char * str) {
-  int count = 0;
-  char ch = str[0];
-  for(int i=0; ch!='\0'; i++){
-    count++;
-    ch = str[i];
-  }
-
- return count;
-}
+	string = "Alan Teste";
+	ft_putstr(string);
+	return (0);
+}*/

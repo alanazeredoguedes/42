@@ -1,8 +1,13 @@
-void ft_ultimate_ft(int *********nbr);
+/*#include <stdio.h>*/
 
+void	ft_ultimate_ft(int *********nbr)
+{
+	*********nbr = 42;
+}
+/*
 int main(){
 
- int valor = 42;
+ int valor = 0;
  int *pa = &valor;
  int **pb = &pa;
  int ***pc = &pb;
@@ -15,8 +20,9 @@ int main(){
 
  ft_ultimate_ft(pi);
 
+printf("%d", valor);
+
+
  return 0;
 }
-
-void ft_ultimate_ft(int *********nbr){}
-
+*/
