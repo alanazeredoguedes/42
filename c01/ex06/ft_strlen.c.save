@@ -1,0 +1,29 @@
+#include <unistd.h>
+#include <stdio.h>
+
+int	ft_strlen(char *str)
+{
+	int	count;
+	char	ch;
+
+	count = 0;
+	ch = str[0];
+	while (ch != '\0')
+	{
+		count++;
+		ch = str[count];
+	}
+	return (count);
+}
+
+int	main(int argc, char *argv[])
+{
+	char 	*string;
+	int	length;
+
+	if(
+	length = ft_strlen(string);
+//	write(1, &length, sizeof(int));
+	printf("%d", length);
+	return (0);
+}
