@@ -7,22 +7,22 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
-	{
+	while (dest[i])
 		i++;
-	}
-	while (j < nb && src[j] != '\0')
+	while (src[j] && j < nb)
 	{
-		dest[i + j] = src [j];
+		dest[i] = src[j];
+		i++;
 		j++;
 	}
-	dest[i + j] = '\0';
+	dest[i] = '\0';
 	return (dest);
 }
-
+/*
 int	main()
 {
-	char src[] = "Network";
-	char dest[] = "42 ";
-	printf("%s", ft_strncat(dest, src, 7));
+	char dest[] = "Alan ";
+	char src[] = "Lindão";
+	printf("%s", ft_strncat(dest, src, 3));
 }
+*/
