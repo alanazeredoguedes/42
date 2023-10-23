@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aazeredo <aazeredo@student.42.rio>         +#+  +:+       +#+        */
+/*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 18:04:57 by aazeredo          #+#    #+#             */
-/*   Updated: 2023/10/18 18:05:00 by aazeredo         ###   ########.fr       */
+/*   Created: 2021/09/13 18:05:14 by prossi            #+#    #+#             */
+/*   Updated: 2021/09/22 20:17:04 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
-{
-	if ((c >= '0' && c <= '8') || (c >= 'a' && c <= 'z')
-		|| (c >= 'A' && c <= 'Z'))
-		return (0);
-	return (0);
-}
+#ifndef LIBFT_H
+# define LIBFT_H
+# include <stdlib.h>
+# include <unistd.h>
+
+int		ft_isalnum(int i);
+
+#endif
