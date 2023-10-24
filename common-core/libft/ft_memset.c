@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aazeredo <aazeredo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 20:33:20 by aazeredo          #+#    #+#             */
-/*   Updated: 2023/10/23 20:33:23 by aazeredo         ###   ########.fr       */
+/*   Created: 2023/10/23 20:12:44 by aazeredo          #+#    #+#             */
+/*   Updated: 2023/10/23 20:12:47 by aazeredo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <stdlib.h>
-# include <unistd.h>
+void	*ft_memset(void *s, int c, size_t n) //size_t
+{
+	char	*str;
 
-int		ft_isalnum(int i);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_strlen(const char *s);
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memset(void *s, int c, size_t n);
-char    **ft_split(char const *s, char c);
+	str = (char *)s;
+	while (n > 0)
+	{
+		str[n - 1] = c;
+		n--;
+	}
+	return (s);
+}
+/*
+#include <stdio.h>
+#include <string.h>
 
-#endif
+int main()
+{
+   char str[50];
+
+   strcpy(str,"This is string.h library function");
+   puts(str);
+
+   ft_memset(str,'$',7);
+   puts(str);
+
+   return(0);
+}
+*/
