@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char c)
 
 	return (array);
 }
-
+/*
 int	main()
 {
 	char	**array;
@@ -112,3 +112,4 @@ int	main()
 	free(array);
 
 }
+*/
