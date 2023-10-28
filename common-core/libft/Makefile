@@ -1,32 +1,61 @@
-Library		= libft
 
-files 	   =  ft_isalnum \
+SRCS			=	ft_isalpha.c \
+				ft_isdigit.c \
+				ft_isalnum.c \
+				ft_isascii.c \
+#				ft_isprint.c \
+#				ft_strlen.c \
+#				ft_memset.c \
+#				ft_bzero.c \
+#				ft_memcpy.c \
+#				ft_memmove.c \
+#				ft_strlcpy.c \
+#				ft_strlcat.c \
+#				ft_toupper.c \
+#				ft_tolower.c \
+#				ft_strchr.c \
+#				ft_strrchr.c \
+#				ft_strncmp.c \
+#				ft_memchr.c \
+#				ft_memcmp.c \
+#				ft_strnstr.c \
+#				ft_atoi.c \
+#				ft_calloc.c \
+#				ft_strdup.c \
 
-Compiler	= gcc
+OBJS			= $(SRCS:.c=.o)
 
-CmpFlags	= -Wall -Wextra -Werror
+BONUS			=	#ft_lstadd_back.c \
+#			 	ft_lstadd_front.c \
+#				ft_lstclear.c \
+#				ft_lstdelone.c \
+#				ft_lstiter.c \
+#				ft_lstlast.c \
+#				ft_lstmap.c \
+#				ft_lstnew.c \
+#				ft_lstsize.c \
+BONUS_OBJS		= $(BONUS:.c=.o)
 
-OUTN	= $(Library).a
+CC				= gcc
+RM				= rm -f
+CFLAGS			= -Wall -Wextra -Werror -I.
 
-CFILES	= $(files:%=%.c)
+NAME			= libft.a
 
-OFILES	= $(files:%=%.o)
+all:			$(NAME)
 
-NAME	= $(OUTN)
-
-$(NAME):
-	$(Compiler) $(CmpFlags) -c $(CFILES) -I./
-	ar -rc $(OUTN) $(OFILES)
-
-all: $(NAME)
+$(NAME):		$(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f $(NAME)
-	rm -f $(OFILES)
+				$(RM) $(OBJS) $(BONUS_OBJS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 
-re: fclean all
+re:				fclean $(NAME)
 
-.PHONY: all, clean, fclean, re
+bonus:			$(OBJS) $(BONUS_OBJS)
+				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
+.PHONY:			all clean fclean re bonus
