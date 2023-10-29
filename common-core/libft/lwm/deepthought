@@ -3,7 +3,7 @@ $> hostname; uname -msr
 vapo
 Linux 6.2.0-35-generic x86_64
 $> date
-sáb 28 out 2023 16:30:32 -03
+dom 29 out 2023 00:33:57 -03
 $> gcc --version
 gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
 Copyright (C) 2021 Free Software Foundation, Inc.
@@ -17,26 +17,24 @@ $> norminette libft.h | grep -E '(Error|Warning)'
 
 = Compiling libft ==============================================================
 $> make re
-rm -f ft_isalnum.o ft_isalpha.o 
+rm -f  
 rm -f libft.a
-gcc -Wall -Wextra -Werror -I.   -c -o ft_isalnum.o ft_isalnum.c
-gcc -Wall -Wextra -Werror -I.   -c -o ft_isalpha.o ft_isalpha.c
-ar rcs libft.a ft_isalnum.o ft_isalpha.o
+ar rcs libft.a 
 
 $> make bonus
-gcc -Wall -Wextra -Werror -I.   -c -o ft_isalnum.o ft_isalnum.c
-gcc -Wall -Wextra -Werror -I.   -c -o ft_isalpha.o ft_isalpha.c
-ar rcs libft.a ft_isalnum.o ft_isalpha.o 
+ar rcs libft.a  
 
 $> ls -la libft.a
--rw-rw-r-- 1 vapo vapo 2782 out 28 16:30 /home/vapo/dev/42/common-core/libft/lwm/dirlibft/libft.a
+-rw-rw-r-- 1 vapo vapo 8 out 29 00:33 /home/vapo/dev/42/common-core/libft/lwm/dirlibft/libft.a
 
 = Part1_functions ==============================================================
 
 = ft_memset.c ==================================================================
 $> norminette ft_memset.c | grep -E '(Error|Warning)'
 ..//ft_memset.c: Error!
-Error: WRONG_SCOPE_COMMENT  (line:  13, col:  46):	Comment is invalid in this scope
+Error: SPACE_AFTER_KW       (line:  19, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  19, col:   7):	Missing space before parenthesis (brace/bracket)
+Error: SPACE_AFTER_KW       (line:  24, col:  20):	Missing space after keyword
 Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memset.c main.c libft.a -o user_exe
 
@@ -50,6 +48,11 @@ $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_bzero.c main.c libft.a 
 
 = ft_calloc.c ==================================================================
 $> norminette ft_calloc.c | grep -E '(Error|Warning)'
+..//ft_calloc.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: ASSIGN_IN_CONTROL    (line:   8, col:  15):	Assignment in control structure
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_calloc.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
@@ -57,9 +60,10 @@ $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_calloc.c main.c libft.a
 = ft_memcpy.c ==================================================================
 $> norminette ft_memcpy.c | grep -E '(Error|Warning)'
 ..//ft_memcpy.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: SPACE_AFTER_KW       (line:  12, col:  11):	Missing space after keyword
-Error: SPACE_AFTER_KW       (line:  12, col:  31):	Missing space after keyword
+Error: SPACE_AFTER_KW       (line:  13, col:  11):	Missing space after keyword
+Error: SPACE_AFTER_KW       (line:  13, col:  32):	Missing space after keyword
 Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memcpy.c main.c libft.a -o user_exe
 
@@ -68,13 +72,10 @@ $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memcpy.c main.c libft.a
 = ft_memmove.c =================================================================
 $> norminette ft_memmove.c | grep -E '(Error|Warning)'
 ..//ft_memmove.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
 Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
-Error: LINE_TOO_LONG        (line:   3, col:   1):	line too long
-Error: LINE_TOO_LONG        (line:   3, col:  85):	line too long
-Error: SPACE_AFTER_KW       (line:  15, col:  15):	Missing space after keyword
-Error: SPACE_AFTER_KW       (line:  15, col:  35):	Missing space after keyword
-Error: SPACE_AFTER_KW       (line:  24, col:  15):	Missing space after keyword
-Error: SPACE_AFTER_KW       (line:  24, col:  35):	Missing space after keyword
+Error: LINE_TOO_LONG        (line:   4, col:   1):	line too long
+Error: LINE_TOO_LONG        (line:   4, col:  85):	line too long
 Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memmove.c main.c libft.a -o user_exe
 
@@ -82,12 +83,25 @@ $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memmove.c main.c libft.
 
 = ft_memchr.c ==================================================================
 $> norminette ft_memchr.c | grep -E '(Error|Warning)'
+..//ft_memchr.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPACE_AFTER_KW       (line:  11, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  11, col:  10):	Missing space before parenthesis (brace/bracket)
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memchr.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
 
 = ft_memcmp.c ==================================================================
 $> norminette ft_memcmp.c | grep -E '(Error|Warning)'
+..//ft_memcmp.c: Error!
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPACE_AFTER_KW       (line:  10, col:  24):	Missing space after keyword
+Error: SPACE_AFTER_KW       (line:  10, col:  53):	Missing space after keyword
+Error: SPACE_AFTER_KW       (line:  11, col:  32):	Missing space after keyword
+Error: SPACE_AFTER_KW       (line:  11, col:  60):	Missing space after keyword
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_memcmp.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
@@ -100,48 +114,109 @@ $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlen.c main.c libft.a
 
 = ft_strdup.c ==================================================================
 $> norminette ft_strdup.c | grep -E '(Error|Warning)'
+..//ft_strdup.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: NO_SPC_AFR_PAR       (line:  11, col:  10):	Extra space after parenthesis (brace/bracket)
+Error: ASSIGN_IN_CONTROL    (line:  11, col:  19):	Assignment in control structure
+Error: SPACE_AFTER_KW       (line:  11, col:  22):	Missing space after keyword
+Error: NO_SPC_AFR_PAR       (line:  11, col:  66):	Extra space after parenthesis (brace/bracket)
+Error: NO_SPC_BFR_PAR       (line:  11, col:  68):	Extra space before parenthesis (brace/bracket)
+Error: SPACE_AFTER_KW       (line:  14, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  14, col:  10):	Missing space before parenthesis (brace/bracket)
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strdup.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
 
 = ft_strlcat.c =================================================================
 $> norminette ft_strlcat.c | grep -E '(Error|Warning)'
+..//ft_strlcat.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPACE_AFTER_KW       (line:  15, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  15, col:   7):	Missing space before parenthesis (brace/bracket)
+Error: SPACE_AFTER_KW       (line:  17, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  17, col:  10):	Missing space before parenthesis (brace/bracket)
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlcat.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
 
 = ft_strlcpy.c =================================================================
 $> norminette ft_strlcpy.c | grep -E '(Error|Warning)'
+..//ft_strlcpy.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPACE_AFTER_KW       (line:   8, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:   8, col:   7):	Missing space before parenthesis (brace/bracket)
+Error: SPACE_AFTER_KW       (line:  11, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  11, col:  10):	Missing space before parenthesis (brace/bracket)
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strlcpy.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
 
 = ft_strchr.c ==================================================================
 $> norminette ft_strchr.c | grep -E '(Error|Warning)'
+..//ft_strchr.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPACE_AFTER_KW       (line:  13, col:   9):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  13, col:  11):	Missing space before parenthesis (brace/bracket)
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strchr.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
 
 = ft_strrchr.c =================================================================
 $> norminette ft_strrchr.c | grep -E '(Error|Warning)'
+..//ft_strrchr.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strrchr.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
 
 = ft_strnstr.c =================================================================
 $> norminette ft_strnstr.c | grep -E '(Error|Warning)'
+..//ft_strnstr.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPACE_REPLACE_TAB    (line:   6, col:  11):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:   7, col:  11):	Found space when expecting tab
+Error: SPACE_AFTER_KW       (line:   9, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:   9, col:   7):	Missing space before parenthesis (brace/bracket)
+Error: SPACE_AFTER_KW       (line:  11, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  11, col:   7):	Missing space before parenthesis (brace/bracket)
+Error: LINE_TOO_LONG        (line:  17, col:  82):	line too long
+Error: SPACE_AFTER_KW       (line:  19, col:   9):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:  19, col:  11):	Missing space before parenthesis (brace/bracket)
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strnstr.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
 
 = ft_strncmp.c =================================================================
 $> norminette ft_strncmp.c | grep -E '(Error|Warning)'
+..//ft_strncmp.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: SPACE_AFTER_KW       (line:   9, col:   5):	Missing space after keyword
+Error: SPC_BFR_PAR          (line:   9, col:  10):	Missing space before parenthesis (brace/bracket)
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strncmp.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
 
 = ft_atoi.c ====================================================================
 $> norminette ft_atoi.c | grep -E '(Error|Warning)'
+..//ft_atoi.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: LINE_TOO_LONG        (line:  13, col:  84):	line too long
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_atoi.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
@@ -178,12 +253,20 @@ $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_isprint.c main.c libft.
 
 = ft_toupper.c =================================================================
 $> norminette ft_toupper.c | grep -E '(Error|Warning)'
+..//ft_toupper.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_toupper.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
 
 = ft_tolower.c =================================================================
 $> norminette ft_tolower.c | grep -E '(Error|Warning)'
+..//ft_tolower.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_tolower.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
@@ -198,6 +281,11 @@ $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_strmapi.c main.c libft.
 
 = ft_substr.c ==================================================================
 $> norminette ft_substr.c | grep -E '(Error|Warning)'
+..//ft_substr.c: Error!
+Error: EMPTY_LINE_FILE_START (line:   1, col:   1):	Empty line at start of file
+Error: INVALID_HEADER       (line:   1, col:   1):	Missing or invalid 42 header
+Error: EMPTY_LINE_FUNCTION  (line:   6, col:   1):	Empty line in function
+Norme check failed
 $> clang -Wextra -Wall -Werror -g3 -fsanitize=address ft_substr.c main.c libft.a -o user_exe
 
 /home/vapo/dev/42/common-core/libft/lwm/srcs/check_compilation.sh: linha 22: clang: comando não encontrado
