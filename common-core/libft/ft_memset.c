@@ -10,32 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *s, int c, size_t n) //size_t
-{
-	char	*str;
+#include "libft.h"
 
-	str = (char *)s;
-	while (n > 0)
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t	i;
+
+	if(!s)
+		return (NULL);
+	i = 0;
+	while (i < n)
 	{
-		str[n - 1] = c;
-		n--;
+		((unsigned char*)s)[i] = (unsigned char)c;
+		i++;
 	}
 	return (s);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-
-int main()
-{
-   char str[50];
-
-   strcpy(str,"This is string.h library function");
-   puts(str);
-
-   ft_memset(str,'$',7);
-   puts(str);
-
-   return(0);
-}
-*/
