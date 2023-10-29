@@ -16,74 +16,60 @@
 int	count_number_string(char const *s, char c)
 {
 	int	i;
-	int	count = 0;
+	int	count;
 
 	count = 0;
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
-		if( (i != 0) && (s[i+1] != '\0') && s[i] == c && (s[i+1] != c) )
+		if ((i != 0) && (s[i + 1] != '\0') && s[i] == c && (s[i + 1] != c))
 			count++;
 		i++;
 	}
-	if(count != 0)
+	if (count != 0)
 		count += 1;
-
 	return (count);
 }
 
-void	copy_string(char const *s, char **array, int p1, int pend, int arrayp)
+void	copy_string(char const *s, char **array, int *params)
 {
-	int	i;
+	int		i;
 	char	*string;
 
 	i = 0;
-	string = malloc((pend-p1+1) * sizeof(char*));
-	//if(!string)
-		//return (NULL);
-
-	//printf("%d %d\n", p1, pend);
-	while(p1 <= pend)
+	string = malloc((params[1] - params[0] + 1) * sizeof(char *));
+	while (params[0] <= params[1])
 	{
-		string[i] = s[p1];
-		p1++;
+		string[i] = s[params[0]];
+		params[0]++;
 		i++;
-	//	printf("-");
 	}
-	//printf("\n");
 	string[i] = '\0';
-	array[arrayp] = string;
+	array[params[2]] = string;
 }
-
 
 char	**ft_split(char const *s, char c)
 {
-	int	p1;
-	int	i;
+	int		i;
+	int		params[3];
 	char	**array;
-	int	arrayP;
 
-	array = malloc((count_number_string(s, c)+1) * sizeof(char*));
-
-	arrayP = 0;
+	array = malloc((count_number_string(s, c) + 1) * sizeof(char *));
 	i = 0;
-	p1 = 0;
-	while(s[i])
+	params[0] = 0;
+	params[2] = 0;
+	while (s[i])
 	{
-
-		if(s[i] != c && ( (s[i+1] == c) || (s[i+1] == '\0') ) )
+		if (s[i] != c && ((s[i + 1] == c) || (s[i + 1] == '\0')))
 		{
-			copy_string(s, array, p1, i, arrayP);
-			arrayP++;
+			copy_string(s, array, params);
+			params[2]++;
 		}
-		if(s[i] == c)
-			p1 = i+1;
-
+		if (s[i] == c)
+			params[0] = i + 1;
 		i++;
 	}
-
-	array[arrayP] = NULL;
-
+	array[params[2]] = NULL;
 	return (array);
 }
 /*
@@ -93,11 +79,10 @@ int	main()
 	int	i;
 
 	i=0;
-	//array = ft_split("Alan e lindao, o Carlos e feio, Jose e mais ou menos!", ' ');
-	//array = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-//	array = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
-	array = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z');
-
+	//array = ft_split("Alan e lindao,", ' ');
+	//array = ft_split("lorem ipsum do", ' ');
+//	array = ft_split("   lorem   ipsumisse   ", ' ');
+	array = ft_split("lorem ipsum dolomod non, mi.", 'z');
 	while(array[i])
 	{
 		printf("%s\n", array[i]);

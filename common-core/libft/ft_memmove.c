@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aazeredo <aazeredo@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/29 12:42:33 by aazeredo          #+#    #+#             */
+/*   Updated: 2023/10/29 12:42:34 by aazeredo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-/* Copia n caracteres de str2 para str1 , mas para blocos de memória sobrepostos. */
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	int	i;

@@ -1,3 +1,14 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aazeredo <aazeredo@student.42.rio>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/29 12:26:24 by aazeredo          #+#    #+#              #
+#    Updated: 2023/10/29 12:26:27 by aazeredo         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 SRCS			=	ft_isalpha.c \
 				ft_isdigit.c \
@@ -22,17 +33,17 @@ SRCS			=	ft_isalpha.c \
 				ft_atoi.c \
 				ft_calloc.c \
 				ft_strdup.c \
-#				ft_substr.c \
-#				ft_strjoin.c \
-#				ft_strtrim.c \
-#				ft_split.c \
-#				ft_itoa.c \
-#				ft_strmapi.c \
-#				ft_striteri.c \
-#				ft_putchar_fd.c \
-#				ft_putstr_fd.c \
-#				ft_putendl_fd.c \
-#				ft_putnbr_fd.c 
+				ft_substr.c \
+				ft_strjoin.c \
+				ft_strtrim.c \
+				ft_split.c \
+				ft_itoa.c \
+				ft_strmapi.c \
+				ft_striteri.c \
+				ft_putchar_fd.c \
+				ft_putstr_fd.c \
+				ft_putendl_fd.c \
+				ft_putnbr_fd.c
 OBJS			= $(SRCS:.c=.o)
 
 BONUS			= 	#bonus.c
@@ -59,5 +70,9 @@ re:				fclean $(NAME)
 
 bonus:			$(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY:			all clean fclean re bonus

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aazeredo <aazeredo@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/29 12:29:45 by aazeredo          #+#    #+#             */
+/*   Updated: 2023/10/29 12:29:47 by aazeredo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -8,10 +19,11 @@ char	*ft_strdup(const char *s)
 
 	if (!s)
 		return (NULL);
-	if (!( copy_s = (char*)malloc((ft_strlen(s) + 1) * sizeof(*s)) ))
+	copy_s = (char *)malloc((ft_strlen(s) + 1) * sizeof(*s));
+	if (!copy_s)
 		return (NULL);
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		copy_s[i] = s[i];
 		i++;
