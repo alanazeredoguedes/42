@@ -24,7 +24,7 @@ ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}[OK] 
 ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
-ft_split:      [CRASH] [OK] [CRASH] [CRASH] [OK] [CRASH] [OK] [CRASH] [CRASH] [TIMEOUT] {not protected}
+ft_split:      [CRASH] [OK] [CRASH] [CRASH] [OK] [CRASH] [OK] [CRASH] [CRASH] [CRASH] {not protected}
 [crash]: your split does not work with basic input
 Test code:
 	char *string = "      split       this for   me  !       ";
@@ -87,6 +87,8 @@ Test code:
 		exit(TEST_SUCCESS);
 	exit(TEST_FAILED);
 
+
+[crash]: your split does not work with basic input
 Test code:
 	char *s = "      split       this for   me  !       ";
 

@@ -1,9 +1,9 @@
 = Host-specific information ====================================================
 $> hostname; uname -msr
-c1r2s4.42.rio
-Linux 5.15.0-87-generic x86_64
+c1r2s3.42.rio
+Linux 5.15.0-88-generic x86_64
 $> date
-Mon Nov  6 10:28:58 PM -03 2023
+Wed Nov  8 07:51:35 PM -03 2023
 $> gcc --version
 gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
 Copyright (C) 2021 Free Software Foundation, Inc.
@@ -21,7 +21,7 @@ $> norminette libft.h | grep -E '(Error|Warning)'
 
 = Compiling libft ==============================================================
 $> make re
-make: Warning: File 'Makefile' has modification time 67 s in the future
+make: Warning: File 'Makefile' has modification time 68 s in the future
 rm -f ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_strlcpy.o ft_strlcat.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o ft_strncmp.o ft_memchr.o ft_memcmp.o ft_strnstr.o ft_atoi.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
 rm -f libft.a
 gcc -Wall -Wextra -Werror   -c -o ft_isalpha.o ft_isalpha.c
@@ -62,7 +62,7 @@ ar rcs libft.a ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o 
 make: warning:  Clock skew detected.  Your build may be incomplete.
 
 $> make bonus
-make: Warning: File 'Makefile' has modification time 66 s in the future
+make: Warning: File 'Makefile' has modification time 67 s in the future
 gcc -Wall -Wextra -Werror   -c -o ft_isalpha.o ft_isalpha.c
 gcc -Wall -Wextra -Werror   -c -o ft_isdigit.o ft_isdigit.c
 gcc -Wall -Wextra -Werror   -c -o ft_isalnum.o ft_isalnum.c
@@ -110,7 +110,7 @@ ar rcs libft.a ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o 
 make: warning:  Clock skew detected.  Your build may be incomplete.
 
 $> ls -la libft.a
--rw-r--r-- 1 aazeredo 2023_rio-de-janeiro 65878 Nov  6  2023 /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/dirlibft/libft.a
+-rw-r--r-- 1 aazeredo 2023_rio-de-janeiro 65878 Nov  8  2023 /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/dirlibft/libft.a
 
 = Part1_functions ==============================================================
 
@@ -1113,7 +1113,7 @@ Diff OK :D
 = Test 2 ===================================================
 $> ./user_exe 02
 $> diff -U 3 user_output_test02 test02.output
---- /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/user_output_test02	2023-11-06 22:30:27.645194220 -0300$
+--- /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/user_output_test02	2023-11-08 19:53:05.440057337 -0300$
 +++ /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/test02.output	2023-10-23 20:23:21.004603838 -0300$
 @@ -0,0 +1,12 @@$
 +lorem$
@@ -1133,7 +1133,7 @@ Diff KO :(
 = Test 3 ===================================================
 $> ./user_exe 03
 $> diff -U 3 user_output_test03 test03.output
---- /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/user_output_test03	2023-11-06 22:30:28.218194248 -0300$
+--- /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/user_output_test03	2023-11-08 19:53:05.531057342 -0300$
 +++ /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/test03.output	2023-10-23 20:23:21.006603838 -0300$
 @@ -0,0 +1,12 @@$
 +lorem$
@@ -1153,7 +1153,7 @@ Diff KO :(
 = Test 4 ===================================================
 $> ./user_exe 04
 $> diff -U 3 user_output_test04 test04.output
---- /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/user_output_test04	2023-11-06 22:30:28.791194276 -0300$
+--- /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/user_output_test04	2023-11-08 19:53:05.624057346 -0300$
 +++ /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/test04.output	2023-10-23 20:23:21.008603838 -0300$
 @@ -0,0 +1,25 @@$
 +lorem $
@@ -1186,7 +1186,7 @@ Diff KO :(
 = Test 5 ===================================================
 $> ./user_exe 05
 $> diff -U 3 user_output_test05 test05.output
---- /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/user_output_test05	2023-11-06 22:30:29.366194303 -0300$
+--- /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/user_output_test05	2023-11-08 19:53:06.179057373 -0300$
 +++ /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/tests/Part2_functions/ft_split/test05.output	2023-10-23 20:23:21.010603838 -0300$
 @@ -0,0 +1 @@$
 +lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.$

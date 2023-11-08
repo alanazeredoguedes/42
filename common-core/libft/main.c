@@ -9,7 +9,7 @@
 #include "libft.h"
 
 
-void	test_strlcat();
+void	test_split();
 
 int	main(void)
 {
@@ -18,24 +18,25 @@ int	main(void)
 	printf("- Inicio Testes! -\n");
 	printf("------------------\n\n");
 
-	//test_strlcat();
+	test_split();
 
 
 	return (0);
 }
 
 
-void	test_strlcat()
+void	test_split()
 {
-	printf("\n\n---ft_strlcat---\n\n");
+	printf("\n\n---ft_split---\n\n");
 
-	char	src[100] = "Alan Guedes";
-	char	dst[100] = "Meu nome é ";
-	char	src2[100] = "Alan Guedes";
-	char	dst2[100] = "Meu nome é ";
+	char    **array;
+	int	i;
 
-	//ft_strlcat(dst, src, 100);
-	//strlcat(dst2, src2, 100);
-	printf("ft_strlcat - %ld - %s\n", ft_strlcat(dst, src, 15), dst);
-	printf("strlcat - %ld - %s\n", strlcat(dst2, src2, 15),  dst2);
+	i = 0;
+	array = ft_split(",Alan,lucas,jose,marcos,,,joao,,,", ',');
+	while(array[i])
+	{
+		printf("%s\n", array[i]);
+		i++;
+	}
 }

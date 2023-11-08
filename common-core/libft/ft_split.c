@@ -56,7 +56,7 @@ char	**ft_split(char const *s, char c)
 
 	array = malloc((count_number_string(s, c) + 1) * sizeof(char *));
 	i = 0;
-	params[0] = 0;
+	params[0] = 0;//copy_index
 	params[2] = 0;
 	while (s[i])
 	{
@@ -72,29 +72,3 @@ char	**ft_split(char const *s, char c)
 	array[params[2]] = NULL;
 	return (array);
 }
-/*
-int	main()
-{
-	char	**array;
-	int	i;
-
-	i=0;
-	//array = ft_split("Alan e lindao,", ' ');
-	//array = ft_split("lorem ipsum do", ' ');
-//	array = ft_split("   lorem   ipsumisse   ", ' ');
-	array = ft_split("lorem ipsum dolomod non, mi.", 'z');
-	while(array[i])
-	{
-		printf("%s\n", array[i]);
-		free(array[i]);
-		i++;
-	}
-
-	//printf("%s\n", array[0]);
-	//printf("%s\n", array[1]);
-	//printf("%s\n", array[2]);
-
-	free(array);
-
-}
-*/
