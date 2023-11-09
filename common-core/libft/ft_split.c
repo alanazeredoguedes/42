@@ -38,46 +38,52 @@ void	copy_string(char const *s, char **array, int *params)
 
 	i = 0;
 	string = malloc((params[1] - params[0] + 1) * sizeof(char *));
-	if (string)
+	if (!string)
 	{
-		while (params[0] <= params[1])
-		{
-			string[i] = s[params[0]];
-			params[0]++;
-			i++;
-		}
-		string[i] = '\0';
-		array[params[2]] = string;
-	}else{
 		params[3] = 1;
+		return ;
 	}
+	while (params[0] <= params[1])
+	{
+		string[i] = s[params[0]];
+		params[0]++;
+		i++;
+	}
+	string[i] = '\0';
+	array[params[2]] = string;
 }
 
+/*
+* p[0] = posicao inicial string a copiar
+* p[1] = index
+* p[2] = posicao array onde alocar string
+* p[3] = sinal de retorno alocacao
+*/
 char	**ft_split(char const *s, char c)
 {
-	int		params[4];
+	int		p[4];
 	char	**array;
 
 	array = malloc((count_number_string(s, c) + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
-	params[0] = 0; // posicao inicial string a copiar
-	params[1] = 0; // index
-	params[2] = 0; // posicao array onde alocar string
-	params[3] = 0; // sinal de retorno alocacao
-	while (s[params[1]])
+	p[0] = 0;
+	p[1] = 0;
+	p[2] = 0;
+	p[3] = 0;
+	while (s[p[1]])
 	{
-		if (s[params[1]] != c && ((s[params[1] + 1] == c) || (s[params[1] + 1] == '\0')))
+		if (s[p[1]] != c && ((s[p[1] + 1] == c) || (s[p[1] + 1] == '\0')))
 		{
-			copy_string(s, array, params);
-			if (params[3] == 1)
+			copy_string(s, array, p);
+			if (p[3] == 1)
 				return (NULL);
-			params[2]++;
+			p[2]++;
 		}
-		if (s[params[1]] == c)
-			params[0] = params[1] + 1;
-		params[1]++;
+		if (s[p[1]] == c)
+			p[0] = p[1] + 1;
+		p[1]++;
 	}
-	array[params[2]] = NULL;
+	array[p[2]] = NULL;
 	return (array);
 }
