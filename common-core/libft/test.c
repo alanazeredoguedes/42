@@ -9,6 +9,7 @@
 #include "libft.h"
 
 
+
 void	test_split();
 
 int	main(void)
@@ -27,13 +28,15 @@ int	main(void)
 
 void	test_split()
 {
-	printf("\n\n---ft_split---\n\n");
+	printf("\n\n---ft_split---\n");
 
 	char    **array;
 	int	i;
+	//char *s = "semper congue, euismod non, mi.";
+	char *j = ",Alan,lucas,jose,marcos,,,joao,,,";
 
 	i = 0;
-	array = ft_split(",Alan,lucas,jose,marcos,,,joao,,,", ',');
+	array = ft_split(j, ',');
 	while(array[i])
 	{
 		printf("%s\n", array[i]);

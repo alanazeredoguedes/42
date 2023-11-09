@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 int	count_number_string(char const *s, char c)
 {
@@ -38,6 +38,8 @@ void	copy_string(char const *s, char **array, int *params)
 
 	i = 0;
 	string = malloc((params[1] - params[0] + 1) * sizeof(char *));
+	if (!string)
+		free(string);
 	while (params[0] <= params[1])
 	{
 		string[i] = s[params[0]];
@@ -55,11 +57,14 @@ char	**ft_split(char const *s, char c)
 	char	**array;
 
 	array = malloc((count_number_string(s, c) + 1) * sizeof(char *));
+	//array[count_number_string(s, c) + 1] = NULL;
 	i = 0;
-	params[0] = 0;//copy_index
-	params[2] = 0;
+	params[0] = 0; // posicao inicial string a copiar
+	params[1] = 0; // index
+	params[2] = 0; // posicao array onde alocar string
 	while (s[i])
 	{
+		params[1] = i;
 		if (s[i] != c && ((s[i + 1] == c) || (s[i + 1] == '\0')))
 		{
 			copy_string(s, array, params);
