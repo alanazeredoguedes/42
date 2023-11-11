@@ -12,8 +12,8 @@
 
 #include "libft.h"
 #include <stdio.h>
-
-int	count_number_string(char const *s, char c)
+/*
+static int	count_words(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -31,59 +31,136 @@ int	count_number_string(char const *s, char c)
 	return (count);
 }
 
-void	copy_string(char const *s, char **array, int *params)
+static char	*copy_string(char const *s, int start, int end)
 {
 	int		i;
 	char	*string;
 
 	i = 0;
-	string = malloc((params[1] - params[0] + 1) * sizeof(char *));
+	string = malloc((end - start + 1) * sizeof(char));
 	if (!string)
+		return (NULL);
+	while (start <= end)
 	{
-		params[3] = 1;
-		return ;
-	}
-	while (params[0] <= params[1])
-	{
-		string[i] = s[params[0]];
-		params[0]++;
+		string[i] = s[start];
+		start++;
 		i++;
 	}
 	string[i] = '\0';
-	array[params[2]] = string;
+//	printf("%s %d %d \n", string, start, end);
+	return (string);
 }
 
-/*
-* p[0] = posicao inicial string a copiar
-* p[1] = index
-* p[2] = posicao array onde alocar string
-* p[3] = sinal de retorno alocacao
-*/
 char	**ft_split(char const *s, char c)
 {
-	int		p[4];
-	char	**array;
+	int		i;
+	int		j;
+	int		start;
+	char	**result;
 
-	array = malloc((count_number_string(s, c) + 1) * sizeof(char *));
+	result = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!s || !result)
+		return (NULL);
+	i = 0;
+	j = 0;
+	start = 0;
+	while (s[i])
+	{
+		if ((s[i] != c && s[i - 1] == c) || (i == 0 && s[0] != c))
+			start = i;
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+		{
+			result[j] = copy_string(s, start, i);
+			if (!result[j])
+				return (NULL);
+			j++;
+		}
+		i++;
+	}
+	result[j] = (NULL);
+	return (result);
+}
+*/
+
+#include "libft.h"
+
+static size_t	count_words(char const *s, char c)
+{
+	size_t	count;
+	size_t	i;
+
+	count = 0;
+	i = 0;
+	while (*(s + i))
+	{
+		if (*(s + i) != c)
+		{
+			count++;
+			while (*(s + i) && *(s + i) != c)
+				i++;
+		}
+		else if (*(s + i) == c)
+			i++;
+	}
+	return (count);
+}
+
+static size_t	get_word_len(char const *s, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (*(s + i) && *(s + i) != c)
+		i++;
+	return (i);
+}
+
+static void	free_array(size_t i, char **array)
+{
+	while (i > 0)
+	{
+		i--;
+		free(*(array + i));
+	}
+	free(array);
+}
+
+static char	**split(char const *s, char c, char **array, size_t words_count)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (i < words_count)
+	{
+		while (*(s + j) && *(s + j) == c)
+			j++;
+		*(array + i) = ft_substr(s, j, get_word_len(&*(s + j), c));
+		if (!*(array + i))
+		{
+			free_array(i, array);
+			return (NULL);
+		}
+		while (*(s + j) && *(s + j) != c)
+			j++;
+		i++;
+	}
+	*(array + i) = NULL;
+	return (array);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**array;
+	size_t	words;
+
+	if (!s)
+		return (NULL);
+	words = count_words(s, c);
+	array = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!array)
 		return (NULL);
-	p[0] = 0;
-	p[1] = 0;
-	p[2] = 0;
-	p[3] = 0;
-	while (s[p[1]])
-	{
-		if (s[p[1]] != c && ((s[p[1] + 1] == c) || (s[p[1] + 1] == '\0')))
-		{
-			copy_string(s, array, p);
-			if (p[3] == 1)
-				return (NULL);
-			p[2]++;
-		}
-		if (s[p[1]] == c)
-			p[0] = p[1] + 1;
-		p[1]++;
-	}
-	array[p[2]] = NULL;
+	array = split(s, c, array, words);
 	return (array);
 }

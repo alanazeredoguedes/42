@@ -32,12 +32,9 @@ void	test_split()
 
 	char    **array;
 	int	i;
-	//char *s = "semper congue, euismod non, mi.";
-	char *j = "a,b,c,d";
-//	char *j = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.";
+	char *j = "Alan, lindao";
 	i = 0;
 	array = ft_split(j, ',');
-//	array = ft_split(j, 'z');
 	while(array[i])
 	{
 		printf("%s\n", array[i]);
