@@ -1,9 +1,9 @@
 = Host-specific information ====================================================
 $> hostname; uname -msr
-c1r2s3.42.rio
+c1r2s6.42.rio
 Linux 5.15.0-88-generic x86_64
 $> date
-Sat Nov 11 03:29:52 PM -03 2023
+Sun Nov 12 02:45:51 PM -03 2023
 $> gcc --version
 gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
 Copyright (C) 2021 Free Software Foundation, Inc.
@@ -110,7 +110,7 @@ ar rcs libft.a ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o 
 make: warning:  Clock skew detected.  Your build may be incomplete.
 
 $> ls -la libft.a
--rw-r--r-- 1 aazeredo 2023_rio-de-janeiro 66310 Nov 11  2023 /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/dirlibft/libft.a
+-rw-r--r-- 1 aazeredo 2023_rio-de-janeiro 66326 Nov 12  2023 /nfs/homes/aazeredo/atividades-github/common-core/libft/lwm/dirlibft/libft.a
 
 = Part2_functions ==============================================================
 
